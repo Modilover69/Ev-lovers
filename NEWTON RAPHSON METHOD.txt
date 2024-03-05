@@ -1,0 +1,28 @@
+ASSIGNMENT NO:-
+PROGRAM NO:-
+%Program: NEWTON RAPHSON METHOD
+%Name: 
+%Roll No.: 
+%I/P: Fuction, f'x, f''x, initial guess, accuracy, max iterations
+function[]=PSJ_NRM(fun,dfun,ddfun,x0,acc,maxitr)
+g=(feval(fun,x0)*feval(ddfun,x0))/(feval(dfun,x0)^2);
+while abs(g)>1
+x0=input('Enter new value of x0\n');
+ g=(feval(fun,x0)*feval(ddfun,x0))/(feval(dfun,x0)^2);
+end
+itr=1;
+while itr<=maxitr
+x1=x0-(feval(fun,x0)/feval(dfun,x0));
+acc_cal=abs(x1-x0);
+if acc_cal<acc
+break
+else x0=x1;
+itr=itr+1;
+end
+end
+fprintf('Root of eqn is %f\n',x1);
+%PSJ_NRM(@(x) x^3+x-1,@(x) 3*x^2+1,@(x) 6*x,0,10^-15,5)
+%Root of eqn is 0.682328
+%fzero(@(x) x^3+x-1,0)
+%ans =
+%0.6823
