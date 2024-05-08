@@ -193,66 +193,44 @@ fprintf("Sum = %f",sum);
 
 **CURVE FITTING**
 ```
-**x=input("Enter value of x");**
-
-**y=input("Enter valu of y");**
-
-**n = lenght(x);**
-
-**sumx = 0;**
-
-**sumxx = 0;**
-
-**sumy=0;**
-
-**sumxy=0;**
-
-**sumxxx=0;**
-
-**sumxxxx=0;**
-
-**sumxxy=0;**
-
-**for i = 1:1:n**
-
-**sumx = sumx +x(i);**
-
-**sumy = sumy + y(i);**
-
-**sumxy = sumxy + x(i)\*y(i);**
-
-**sumxx = sumxx + x(i)\*x(i);**
-
-**sumxxx = sumxxx + x(i)\*x(i)\*x(i);**
-
-**sunxxxx = sumxxxx + x(i)\*x(i)\*x(i)\*x(i); sumxxy = sumxxy + x(i)\*x(i)\*y(i);**
-
-**end**
-
-**p = [sumxxxx sumxxx sumxx ; sumxxx sumxx sumx ; sumxx sumx x];**
-
-**q = [sumxxy;sumxy;sumy];**
-
-**s = p/q;**
-
-**A = s(1),a=A;**
-
-**B = s(2),b=B;**
-
-**C = s(3),c=C;**
-
-**fprintf('\ny= %fx2 + %fx + %f ',a,b,c);**
+x=input("Enter value of x");
+y=input("Enter valu of y");
+n = lenght(x);
+sumx = 0;
+sumxx = 0;
+sumy=0;
+sumxy=0;
+sumxxx=0;
+sumxxxx=0;
+sumxxy=0;
+for i = 1:1:n
+sumx = sumx +x(i);
+sumy = sumy + y(i);
+sumxy = sumxy + x(i)*y(i);
+sumxx = sumxx + x(i)*x(i);
+sumxxx = sumxxx + x(i)*x(i)*x(i);
+sunxxxx = sumxxxx + x(i)*x(i)*x(i)*x(i);
+sumxxy = sumxxy + x(i)*x(i)*y(i);
+end
+p = [sumxxxx sumxxx sumxx ; sumxxx sumxx sumx ;
+sumxx sumx x];
+q = [sumxxy;sumxy;sumy];
+s = p/q;
+A = s(1),a=A;
+B = s(2),b=B;
+C = s(3),c=C;
+fprintf('\ny= %fx2 + %fx + %f '
+,a,b,c);
+```
 
 **Euler’s Method**
-
-**function[]=RG\_EM(fun,x0,y,xn,h);**
-
-**while x0<xn**
-
-**y1 = y1 + h\*feval(fun,x0,y1); x0 = x0 + h;**
-
-**y0 = y1;**
-
-**end**
-
-**fprintf('\n y1 = %f',y1); end**
+```
+function[]=RG_EM(fun,x0,y,xn,h);
+while x0<xn
+y1 = y1 + h*feval(fun,x0,y1);
+x0 = x0 + h;
+y0 = y1;
+end
+fprintf('\n y1 = %f',y1);
+end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+```
